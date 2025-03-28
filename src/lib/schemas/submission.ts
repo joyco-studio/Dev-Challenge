@@ -41,6 +41,7 @@ export const getCountryOptions = (): CountryOption[] => {
 };
 
 export const submissionSchema = z.object({
+  caption: z.string().min(1, { message: "Caption cannot be empty" }),
   uploadedBy: z
     .string()
     .min(1, { message: "Uploaded by field cannot be empty" })

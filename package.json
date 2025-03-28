@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "basehub dev & next dev",
+    "build": "basehub && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "tsx src/scripts/test-schema.ts"
   },
   "dependencies": {
+    "basehub": "^8.1.29",
     "i18n-iso-countries": "^7.14.0",
     "next": "15.2.4",
     "react": "^19.0.0",

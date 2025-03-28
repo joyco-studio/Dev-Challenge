@@ -17,6 +17,8 @@ What we’re looking for:
 
 - ♻️ **ISR (Incremental Static Regeneration)**
 - 🌐 **Basehub integration** for dynamic content
+  - Fork the Basehub project
+  - Add your admin key
 - 🧩 **Form**:
   - Full implementation
   - Schema-based validation (we left a schema ready to use)
