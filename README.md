@@ -11,6 +11,7 @@ This is JOYCO’s official dev challenge — a playground for you to flex your f
 ## Challenge Scope
 
 **Figma**: [JOYCO Dev Challenge](<https://www.figma.com/design/yIttBU3vUZilw0OCqsENde/(JOYCO)-Dev-challenge>)
+<br/>
 **Basehub**: [Public Repo](https://basehub.com/joyco/2025-dev-challenge)
 
 What we’re looking for:
