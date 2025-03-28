@@ -139,22 +139,16 @@ export async function POST(request: NextRequest) {
                   },
                 },
                 uploadedBy: {
-                  type: "reference",
+                  type: "instance",
+                  title: uploadedBy,
                   value: {
-                    type: "instance",
-                    value: {
-                      title: {
-                        type: "text",
-                        value: uploadedBy,
-                      },
-                      email: {
-                        type: "text",
-                        value: email,
-                      },
-                      country: {
-                        type: "text",
-                        value: country,
-                      },
+                    email: {
+                      type: "text",
+                      value: email,
+                    },
+                    country: {
+                      type: "text",
+                      value: country,
                     },
                   },
                 },
