@@ -41,15 +41,26 @@ export const getCountryOptions = (): CountryOption[] => {
 };
 
 export const submissionSchema = z.object({
-  uploadedBy: z.string().max(20, {
-    message: "Uploaded by field must be at most 20 characters long",
-  }),
-  country: z.enum(VALID_COUNTRY_CODES, {
-    errorMap: () => ({
-      message:
-        "Invalid country code. Please use a valid ISO 3166-1 alpha-3 country code (e.g., USA, GBR, FRA)",
+  uploadedBy: z
+    .string()
+    .min(1, { message: "Uploaded by field cannot be empty" })
+    .max(20, {
+      message: "Uploaded by field must be at most 20 characters long",
+    })
+    .refine((val) => val.trim().length > 0, {
+      message: "Uploaded by field cannot be empty or contain only whitespace",
     }),
-  }),
+  country: z
+    .string()
+    .transform((val) => val.toUpperCase())
+    .pipe(
+      z.enum(VALID_COUNTRY_CODES, {
+        errorMap: () => ({
+          message:
+            "Invalid country code. Please use a valid ISO 3166-1 alpha-3 country code (e.g., USA, GBR, FRA)",
+        }),
+      })
+    ),
   email: z.string().email({
     message: "Invalid email address",
   }),
@@ -71,6 +82,7 @@ export const submissionSchema = z.object({
         }),
       })
     )
+    .min(1, { message: "At least one attachment is required" })
     .max(MAX_ATTACHMENTS, {
       message: "Maximum of 5 attachments allowed",
     }),
