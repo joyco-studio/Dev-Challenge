@@ -20,6 +20,8 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",

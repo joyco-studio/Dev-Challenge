@@ -13,7 +13,6 @@ export async function POST(request: NextRequest) {
     const country = formData.get("country") as string;
     const email = formData.get("email") as string;
     const attachments = formData.getAll("attachments") as File[];
-    const caption = formData.get("caption") as string;
 
     // Convert attachments to the format expected by our schema
     const processedAttachments = await Promise.all(
@@ -36,7 +35,6 @@ export async function POST(request: NextRequest) {
       country,
       email,
       attachments: processedAttachments,
-      caption,
     });
 
     if (!validationResult.success) {
@@ -152,14 +150,6 @@ export async function POST(request: NextRequest) {
                     },
                   },
                 },
-                ...(caption
-                  ? {
-                      caption: {
-                        type: "text",
-                        value: caption,
-                      },
-                    }
-                  : {}),
               },
             },
           })),
@@ -169,6 +159,8 @@ export async function POST(request: NextRequest) {
         duration: true,
       },
     });
+
+    console.log(result);
 
     if (!result.transaction.status) {
       return NextResponse.json(
